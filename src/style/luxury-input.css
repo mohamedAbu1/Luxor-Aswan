@@ -1,0 +1,48 @@
+.luxury-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  padding: 19px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--input-text) !important;
+  background: var(--input-glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  transition: all 0.3s ease;
+}
+
+.luxury-input:hover {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+.luxury-label {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--muted) !important;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.luxury-label.active {
+  top: 6px;
+  font-size: 12px;
+  color: var(--gold) !important;
+}
+
+.luxury-value {
+  flex: 1;
+  color: var(--input-text);
+  font-weight: 600;
+}
+
+.luxury-icon {
+  margin-left: auto;
+  font-size: 18px;
+  color: var(--gold);
+}

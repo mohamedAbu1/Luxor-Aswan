@@ -1,0 +1,21 @@
+.MuiSelect-select {
+  color: var(--input-text) !important;
+  font-weight: 600 !important;
+}
+
+.MuiSelect-icon {
+  color: var(--muted) !important;
+}
+
+.MuiMenuItem-root {
+  color: var(--foreground) !important;
+  font-weight: 500 !important;
+}
+.MuiMenuItem-root:hover {
+  background: var(--surface-soft) !important;
+  color: var(--foreground) !important;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--gold);
+}
