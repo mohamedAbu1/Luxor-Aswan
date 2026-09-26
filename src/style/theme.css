@@ -991,3 +991,6 @@ select:not([multiple]) option { color: #1b2929; background: #fffdf8; }
 .mobile-site-nav-item:hover, .mobile-site-nav-item[aria-current="page"] { border-color: rgba(215,173,104,.22); color: var(--gold-bright); background: rgba(215,173,104,.1); }
 .mobile-site-nav-item svg { width: 21px; height: 21px; }
 @media (max-width: 480px) { .mobile-site-nav { bottom: calc(.65rem + env(safe-area-inset-bottom)) !important; } .mobile-site-nav-inner { min-height: 64px; } .mobile-site-nav-item { min-width: 58px; min-height: 52px; padding-inline: .35rem; font-size: .68rem; } }
+/* Keep mobile navigation hidden on desktop; show it only below the mobile breakpoint. */
+.mobile-site-nav { display: none !important; }
+@media (max-width: 1023px) { .mobile-site-nav { display: block !important; } }
