@@ -40,16 +40,16 @@ export default function MobileNavBar({ activeTab, setActiveTab }) {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] z-50 lg:hidden rounded-2xl border border-[var(--line)] bg-[var(--surface)]/90 backdrop-blur-xl shadow-[var(--shadow)]"
+      className="mobile-site-nav fixed bottom-4 left-1/2 z-[70] w-[calc(100%-2rem)] -translate-x-1/2 rounded-2xl border border-[var(--line)] bg-[var(--surface)]/90 backdrop-blur-xl shadow-[var(--shadow)] lg:hidden"
     >
-      <div className="flex justify-around items-center py-2.5">
+      <div className="mobile-site-nav-inner flex items-center justify-around py-2.5">
         {navItems.map((item) => (
           <button
             key={item.id}
             type="button"
             aria-current={activeTab === item.id ? "page" : undefined}
             onClick={() => router.push(`/${locale}${item.path}`)}
-            className={`flex flex-col items-center text-[11px] gap-1 font-semibold transition-all cursor-pointer ${
+            className={`mobile-site-nav-item flex flex-col items-center text-[11px] gap-1 font-semibold transition-all cursor-pointer ${
               activeTab === item.id ? "text-[var(--gold)]" : "text-[var(--muted)]"
             }`}
           >
