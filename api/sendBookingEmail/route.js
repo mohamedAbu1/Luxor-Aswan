@@ -1,8 +1,16 @@
 import sgMail from "@sendgrid/mail";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const sendGridApiKey = process.env.SENDGRID_API_KEY;
+if (sendGridApiKey?.startsWith("SG.")) {
+  sgMail.setApiKey(sendGridApiKey);
+}
 
 export async function sendBookingEmail(user, bookingData) {
+  if (!sendGridApiKey?.startsWith("SG.")) {
+    console.warn("SendGrid is not configured; booking email skipped.");
+    return;
+  }
+
   const msg = {
     to: user.email,
     from: "admin@soldelnilo.com", // لازم يكون verified sender في SendGrid

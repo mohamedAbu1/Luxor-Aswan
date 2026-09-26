@@ -3,12 +3,16 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   const body = await req.json();
   const { name, phone, email, message } = body;
+  const sendGridApiKey = process.env.SENDGRID_API_KEY;
+  if (!sendGridApiKey?.startsWith("SG.")) {
+    return NextResponse.json({ success: false, error: "Email service is not configured" }, { status: 503 });
+  }
 
   try {
     const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.SENDGRID_API_KEY}`,
+        "Authorization": `Bearer ${sendGridApiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
