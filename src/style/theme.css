@@ -994,3 +994,11 @@ select:not([multiple]) option { color: #1b2929; background: #fffdf8; }
 /* Keep mobile navigation hidden on desktop; show it only below the mobile breakpoint. */
 .mobile-site-nav { display: none !important; }
 @media (max-width: 1023px) { .mobile-site-nav { display: block !important; } }
+/* Native option menus: keep the browser popup aligned with the luxury palette. */
+:root[data-theme="dark"] select:not([multiple]), .site-header select { color-scheme: dark; }
+:root[data-theme="light"] select:not([multiple]) { color-scheme: light; }
+select:not([multiple]) { accent-color: var(--gold); }
+select:not([multiple]) option { min-height: 2.5rem; padding: .65rem .8rem; color: var(--input-text); background: var(--surface-strong); font-size: .86rem; }
+select:not([multiple]) option:checked { color: #172526; background: var(--gold-bright); }
+:root[data-theme="light"] select:not([multiple]) option { color: #162326; background: #fffdf8; }
+:root[data-theme="light"] select:not([multiple]) option:checked { color: #fffaf0; background: var(--gold); }
