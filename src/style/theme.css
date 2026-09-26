@@ -984,15 +984,21 @@ select:not([multiple]) option { color: #1b2929; background: #fffdf8; }
 @media (max-width: 700px) { .car-booking-modal { width: 100%; max-height: calc(100svh - 1rem); padding: 1.25rem; border-radius: 20px; } .car-booking-heading h2 { font-size: 2.45rem; } .car-booking-form { gap: .8rem; } .car-booking-form input, .car-booking-form select, .car-booking-form textarea { min-height: 50px; font-size: 16px; } .car-booking-submit { min-height: 52px; } .trips-filter-panel { border-radius: 16px; } .trips-filter-options { max-height: 150px; } .trips-mobile-drawer { padding: 1.25rem .9rem calc(1.25rem + env(safe-area-inset-bottom)); } .trips-mobile-toolbar button { min-height: 48px; border-radius: 12px; } .trips-smart-search input { font-size: 16px; } }
 @media (max-width: 480px) { input, textarea, select { font-size: 16px !important; } .contact-form-card, .contact-channel-card, .contact-trust-card { border-radius: 16px; } .contact-form-grid { grid-template-columns: 1fr !important; } .contact-form-footer { align-items: stretch !important; flex-direction: column; } .contact-form-footer button { width: 100%; min-height: 50px; } .site-header-cta { min-height: 44px; } .hero-search-submit { min-height: 52px; } }
 
-/* Mobile navigation: isolated from the header and hero layout. */
-.mobile-site-nav { position: fixed; top: auto; right: auto; bottom: calc(1rem + env(safe-area-inset-bottom)); left: 50%; z-index: 70; display: none; width: min(420px, calc(100vw - 24px)); overflow: hidden; border: 1px solid rgba(215,173,104,.24); border-radius: 22px; background: rgba(8,27,29,.94); box-shadow: 0 16px 40px rgba(0,0,0,.3); backdrop-filter: blur(18px); }
-.mobile-site-nav-inner { min-height: 68px; padding: .42rem .35rem calc(.42rem + env(safe-area-inset-bottom)); }
-.mobile-site-nav-item { min-width: 62px; min-height: 56px; padding: .45rem .55rem; border: 1px solid transparent; border-radius: 15px; color: rgba(247,241,232,.68); }
+/* Mobile navigation: integrated into the top header on small screens. */
+.mobile-site-nav { display: none; align-items: center; justify-content: center; width: 100%; min-width: 0; }
+.mobile-site-nav-inner { display: flex; align-items: center; justify-content: space-around; width: 100%; min-height: 58px; padding: .3rem .25rem; border-top: 1px solid rgba(215,173,104,.16); }
+.mobile-site-nav-item { display: inline-flex; align-items: center; justify-content: center; min-width: 0; flex: 1 1 0; min-height: 48px; gap: .25rem; padding: .35rem .25rem; border: 1px solid transparent; border-radius: 14px; color: rgba(247,241,232,.68); font-size: .68rem; line-height: 1; }
 .mobile-site-nav-item:hover, .mobile-site-nav-item[aria-current="page"] { border-color: rgba(215,173,104,.22); color: var(--gold-bright); background: rgba(215,173,104,.1); }
-.mobile-site-nav-item svg { width: 21px; height: 21px; }
-@media (max-width: 480px) { .mobile-site-nav { bottom: calc(.65rem + env(safe-area-inset-bottom)) !important; } .mobile-site-nav-inner { min-height: 64px; } .mobile-site-nav-item { min-width: 58px; min-height: 52px; padding-inline: .35rem; font-size: .68rem; } }
-/* Keep mobile navigation hidden on desktop; show it only below the mobile breakpoint. */
-@media (max-width: 1023px) { .mobile-site-nav { display: block; } }
+.mobile-site-nav-item svg { width: 19px; height: 19px; flex: 0 0 auto; }
+@media (max-width: 1023px) {
+  .site-header-shell { flex-wrap: wrap; row-gap: .35rem; }
+  .mobile-site-nav { display: flex; flex-basis: 100%; order: 3; }
+}
+@media (max-width: 480px) {
+  .mobile-site-nav-inner { min-height: 54px; }
+  .mobile-site-nav-item { min-height: 44px; font-size: .64rem; }
+  .mobile-site-nav-item svg { width: 18px; height: 18px; }
+}
 /* Native option menus: keep the browser popup aligned with the luxury palette. */
 :root[data-theme="dark"] select:not([multiple]), .site-header select { color-scheme: dark; }
 :root[data-theme="light"] select:not([multiple]) { color-scheme: light; }
