@@ -32,7 +32,7 @@ export default function Header() {
         <div className="site-header-center">
           <NavBar scrolled={scrolled} />
         </div>
-        <MobileNavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+
         <div className="site-header-actions">
           <RightBar scrolled={scrolled} />
           <motion.div whileHover={{ scale: 1.03 }} className="hidden sm:flex">
@@ -48,5 +48,6 @@ export default function Header() {
         </div>
       </div>
     </motion.header>
+    <MobileNavBar activeTab={activeTab} setActiveTab={setActiveTab} />
   );
 }
