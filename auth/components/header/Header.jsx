@@ -21,7 +21,8 @@ export default function Header() {
   }, []);
 
   return (
-    <motion.header
+    <>
+      <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -47,7 +48,9 @@ export default function Header() {
           </motion.div>
         </div>
       </div>
-    </motion.header>
-    <MobileNavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+      </motion.header>
+
+      <MobileNavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+    </>
   );
 }

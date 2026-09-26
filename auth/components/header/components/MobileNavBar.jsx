@@ -2,15 +2,12 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
-import { useTheme } from "@/context/ThemeContext";
 import { Home, Compass, Heart, User } from "lucide-react";
 
 export default function MobileNavBar({ activeTab, setActiveTab }) {
   const router = useRouter();
-  const pathname = usePathname(); 
-  const { theme } = useTheme();
-
-  const navItems = [
+  const pathname = usePathname();
+const navItems = [
     { id: "home", label: "Home", icon: <Home size={22} />, path: "/" },
     { id: "trips", label: "Trips", icon: <Compass size={22} />, path: "/trips" },
     { id: "about", label: "About", icon: <Heart size={22} />, path: "/about" },
@@ -36,13 +33,13 @@ export default function MobileNavBar({ activeTab, setActiveTab }) {
   }, [cleanPath]);
 
   return (
-    <motion.nav
-      initial={{ y: 80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mobile-site-nav fixed bottom-4 left-1/2 z-[70] w-[calc(100%-2rem)] -translate-x-1/2 rounded-2xl border border-[var(--line)] bg-[var(--surface)]/90 backdrop-blur-xl shadow-[var(--shadow)] lg:hidden"
-    >
-      <div className="mobile-site-nav-inner flex items-center justify-around py-2.5">
+    <nav className="mobile-site-nav" aria-label="Mobile navigation">
+      <motion.div
+        initial={{ y: 18, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className="mobile-site-nav-inner flex items-center justify-around"
+      >
         {navItems.map((item) => (
           <button
             key={item.id}
@@ -57,7 +54,7 @@ export default function MobileNavBar({ activeTab, setActiveTab }) {
             <span>{item.label}</span>
           </button>
         ))}
-      </div>
-    </motion.nav>
+      </motion.div>
+    </nav>
   );
 }
